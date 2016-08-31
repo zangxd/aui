@@ -18,6 +18,55 @@
         z-index: 100;
         font-weight: 700
       }
+      // 简单扩展竖着的tab页，如果不用竖着的，直接去掉最外层的class(ui-tab-vertical)即可。
+      .ui-tab-vertical {
+          position: relative;
+          padding: 0 0 0 30%;
+      }
+      .ui-tab-vertical .tab-content {
+          border: 1px solid #ddd;
+          border-radius: 0 2px 2px 0;
+      }
+
+      .ui-tab-horizontal .nav-tabs>li {
+          border-right: 1px solid #ddd;
+      }
+      .ui-tab-vertical .nav-tabs {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 30%;
+          background-color: #f6f6f6;
+          border-width: 1px 0 1px 1px;
+          border-radius: 2px 0 0 2px;
+          border-color: #ddd;
+          border-style: solid;
+      }
+      .ui-tab-vertical .nav-tabs>li>a {
+          margin: 0;
+          border: 0;
+          padding: 15px;
+          font-weight: 700;
+          border-radius: 0;
+      }
+      .ui-tab-vertical .nav-tabs>li {
+          width: 100%;
+          float: none;
+          border-bottom: 1px solid #ddd;
+          margin: 0;
+      }
+      .ui-tab-vertical .nav-tabs>li.active>a {
+          margin-right: -1px;
+      }
+      .ui-tab-vertical .tab-content {
+          border: 1px solid #ddd;
+          border-radius: 0 2px 2px 0;
+          padding:15px;
+      }
+      .ui-tab-vertical .nav-tabs>li.active>a:active,.ui-tab-vertical .nav-tabs>li.active>a:focus,.ui-tab-vertical .nav-tabs>li.active>a:hover {
+          border: 0
+      }
+
       .bs-component {
         position: relative
       }
@@ -733,54 +782,42 @@
         <div class="col-lg-4">
           <h2 id="nav-tabs">Tabs</h2>
           <div class="bs-component">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#home" data-toggle="tab">Home</a>
-              </li>
-              <li>
-                <a href="#profile" data-toggle="tab">Profile</a>
-              </li>
-              <li class="disabled">
-                <a>Disabled</a>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Dropdown
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="#dropdown1" data-toggle="tab">Action</a>
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#dropdown2" data-toggle="tab">Another action</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade active in" id="home">
-                <p>
-                  Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-                </p>
-              </div>
-              <div class="tab-pane fade" id="profile">
-                <p>
-                  Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
-                </p>
-              </div>
-              <div class="tab-pane fade" id="dropdown1">
-                <p>
-                  Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.
-                </p>
-              </div>
-              <div class="tab-pane fade" id="dropdown2">
-                <p>
-                  Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.
-                </p>
+            <div class="ui-tab-vertical">
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a href="#home" data-toggle="tab">Home</a>
+                </li>
+                <li>
+                  <a href="#profile" data-toggle="tab">Profile</a>
+                </li>
+                <li class="disabled">
+                  <a>Disabled</a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="home">
+                  <p>
+                    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="profile">
+                  <p>
+                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="dropdown1">
+                  <p>
+                    Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="dropdown2">
+                  <p>
+                    Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.
+                  </p>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
         <div class="col-lg-4">
